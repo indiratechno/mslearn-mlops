@@ -1,13 +1,13 @@
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
-code: model
+code: src
 command: >-
-  python 
-  --
-  --
+  python train.py
+  --data-dir ${{inputs.training_data}}
+  --reg_rate ${{inputs.reg_rate}}
 inputs:
   training_data: 
     type: uri_folder 
-    path: experimentation/data/diabetes-dev
+    path: C:\Users\IndiraPriyadarshini\mslearn-mlops\src\job.yml
   reg_rate: 0.01
 environment: azureml:AzureML-sklearn-0.24-ubuntu18.04-py37-cpu@latest
 compute: mlopscompute-vm
